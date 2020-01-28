@@ -2223,12 +2223,12 @@ void INIT_REG_FAPCH_B (void)
 	R4B.ADR = 0x04;
 	
 	R5B.RST = 0;
-	R5B.DIV = 20;// 416.666 MHz
+	R5B.DIV = 250;// 10 MHz 250
 	R5B.PD  = 0x00;
 	R5B.ADR = 0x05;
 
 //-----------------------
-	R6B.TYPE0 = 4;//2 -lvpecl (700 мВ) - выход 0
+	R6B.TYPE0 = 4;//выход 0   2 - lvpecl (700 мВ) - выход 0
 	R6B.TYPE1 = 0;//выход 1
 	R6B.TYPE2 = 4;//выход 2 , 1 - lvds
 	R6B.TYPE3 = 0;//выход 3
@@ -2236,13 +2236,13 @@ void INIT_REG_FAPCH_B (void)
 
 	R7B.TYPE0 = 0;//выход 4,
 	R7B.TYPE1 = 0;//выход 5,
-	R7B.TYPE2 = 0;//выход 6,  //6 - LVCMOS (Norm/Inv)
+	R7B.TYPE2 = 2;//выход 6,  //6 - LVCMOS (Norm/Inv)
 	R7B.TYPE3 = 0;//выход 7,
 	R7B.ADR   = 7;
 	
-	R8B.TYPE0 = 0;//выход 8,  //6 - LVCMOS (Norm/Inv) ,1 - lvds
+	R8B.TYPE0 = 6;//выход 8,  //6 - LVCMOS (Norm/Inv) ,1 - lvds
 	R8B.TYPE1 = 0;//выход 9,
-	R8B.TYPE2 = 6;//выход 10,//1 - lvds
+	R8B.TYPE2 = 6;//выход 10, //1 - lvds
 	R8B.TYPE3 = 0;//выход 11,
 	R8B.ADR   = 8;
 	
@@ -2299,11 +2299,11 @@ void INIT_REG_FAPCH_B (void)
 	
 	R29B.ADR 	     =29;
 	R29B.OSCin_FREQ  = 0;  //0 < 63 MHz   ; 1>63 MHz to 127 MHz
-    R29B.PLL_N_CAL   =25;  // 5 - 100 MHz ref,25 - 20 MHz ref
+    R29B.PLL_N_CAL   =5;  // 5 - 100 MHz ref,25 - 20 MHz ref
 	
 	R30B.ADR 	     =30;
 	R30B.PLL_P       =5;  // 
-    R30B.PLL_N       =25;  // 5 - 100 MHz ref,25 - 20 MHz ref
+    R30B.PLL_N       =5;  // 5 - 100 MHz ref,25 - 20 MHz ref
 	
 	R31B.ADR 	       =31;
 	R31B.READBACK_ADDR = 0;  // READBACK R0
@@ -2410,7 +2410,7 @@ void INIT_REG_FAPCH_A (void)
     R26B.EN_PLL_REF_2X = 0;
 	
 	R28B.ADR      = 28;
-    R28B.PLL_R    = 1;//5 - 100 Mhz   1- 20 MHz
+    R28B.PLL_R    = 5;//5 - 100 Mhz   1- 20 MHz
 	
 	R29B.ADR 	     =29;
 	R29B.OSCin_FREQ  = 1;  // >63 MHz to 127 MHz
