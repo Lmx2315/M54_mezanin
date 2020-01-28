@@ -38,7 +38,7 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Work/Project_M54/M54_mezanin/main.c" title="main.c" tooltip="C:/Work/Project_M54/M54_mezanin/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="59375" selectionTopPixel="35850"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="59346" selectionTopPixel="35850"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="eth.c" partName="eth.c" path="C:/Work/Project_Testboard/STM32/W5200/my/eth.c" title="eth.c" tooltip="C:/Work/Project_Testboard/STM32/W5200/my/eth.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/eth.c"/>
@@ -473,11 +473,6 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
-<persistable>
-<org.coocox.welcome.ui.WelcomePage/>
-</persistable>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="onewire.c" tooltip="pj1/onewire.c">
 <persistable path="/pj1/onewire.c"/>
 </file>
@@ -516,6 +511,9 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_tim.h" tooltip="pj1/stm_lib/inc/stm32f10x_tim.h">
 <persistable path="/pj1/stm_lib/inc/stm32f10x_tim.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_exti.h" tooltip="pj1/stm_lib/inc/stm32f10x_exti.h">
+<persistable path="/pj1/stm_lib/inc/stm32f10x_exti.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_exti.h" tooltip="pj1/stm_lib/inc/stm32f10x_exti.h">
 <persistable path="/pj1/stm_lib/inc/stm32f10x_exti.h"/>

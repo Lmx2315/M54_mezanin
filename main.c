@@ -2240,7 +2240,7 @@ void INIT_REG_FAPCH_B (void)
 	R7B.TYPE3 = 0;//выход 7,
 	R7B.ADR   = 7;
 	
-	R8B.TYPE0 = 6;//выход 8,  //6 - LVCMOS (Norm/Inv) ,1 - lvds
+	R8B.TYPE0 = 0;//выход 8,  //6 - LVCMOS (Norm/Inv) ,1 - lvds
 	R8B.TYPE1 = 0;//выход 9,
 	R8B.TYPE2 = 6;//выход 10, //1 - lvds
 	R8B.TYPE3 = 0;//выход 11,
