@@ -2228,11 +2228,13 @@ void INIT_REG_FAPCH_B (void)
 	R5B.ADR = 0x05;
 
 //-----------------------
-	R6B.TYPE0 = 4;//выход 0   2 - lvpecl (700 м¬) - выход 0
+	R6B.TYPE0 = 6;//выход 0   2 - lvpecl (700 м¬) - выход 0 | 5 - 2000 mV lvPecl
 	R6B.TYPE1 = 0;//выход 1
-	R6B.TYPE2 = 4;//выход 2 , 1 - lvds
+	R6B.TYPE2 = 6;//выход 2 , 1 - lvds
 	R6B.TYPE3 = 0;//выход 3
 	R6B.ADR   = 6;
+	
+	
 
 	R7B.TYPE0 = 0;//выход 4,
 	R7B.TYPE1 = 0;//выход 5,
@@ -2314,31 +2316,31 @@ void INIT_REG_FAPCH_A (void)
 {
 	R0B.RST = 1;
 	R0B.DIV = 8;//не нужен
-	R0B.PD  = 0x00;
+	R0B.PD  = 0x01;
 	R0B.ADR = 0x00;
 
 	R1B.RST = 0;
 	R1B.DIV = 8;//не нужен
-	R1B.PD  = 0x00;
+	R1B.PD  = 0x01;
 	R1B.ADR = 0x01;
 
 	R2B.RST = 0;
 	R2B.DIV = 6;//не нужен
-	R2B.PD  = 0x00;
+	R2B.PD  = 0x01;
 	R2B.ADR = 0x02;
 
 	R3B.RST = 0;
 	R3B.DIV = 6;//не нужен
-	R3B.PD  = 0x00;
+	R3B.PD  = 0x01;
 	R3B.ADR = 0x03;
 
 	R4B.RST = 0;
 	R4B.DIV = 252;//не нужен
-	R4B.PD  = 0x00;
+	R4B.PD  = 0x01;
 	R4B.ADR = 0x04;
 	
 	R5B.RST = 0;
-	R5B.DIV = 7;//360 MHz 7
+	R5B.DIV = 252;//360 MHz 7
 	R5B.PD  = 0x00;
 	R5B.ADR = 0x05;
 
@@ -2357,8 +2359,8 @@ void INIT_REG_FAPCH_A (void)
 	
 	R8B.TYPE0 = 0;//выход 8,
 	R8B.TYPE1 = 0;//выход 9,
-	R8B.TYPE2 = 5;//выход 10,2 -lvpecl (700 м¬)  LVPECL (2000 mVpp)
-	R8B.TYPE3 = 5;//выход 11,2 -lvpecl (700 м¬)  LVPECL (2000 mVpp)
+	R8B.TYPE2 = 2;//выход 10,2 -lvpecl (700 м¬)  LVPECL (2000 mVpp)
+	R8B.TYPE3 = 2;//выход 11,2 -lvpecl (700 м¬)  LVPECL (2000 mVpp)
 	R8B.ADR   = 8;
 	
 	R9B.ADR   = 9;
@@ -2628,6 +2630,14 @@ void FAPCH_B (char r)
 	spi_FAPCH_B(B_stz.R3);Transf("R3 " );	
 	spi_FAPCH_B(B_stz.R4);Transf("R4 " );	
 	spi_FAPCH_B(B_stz.R5);Transf("R5 " );	
+	
+	spi_FAPCH_B(B_stz.R0);Transf("R0 " );	//8.5.1.1 Special Programming Case for R0 to R5 for CLKoutX_Y_DIV > 25
+	spi_FAPCH_B(B_stz.R1);Transf("R1 " );	
+	spi_FAPCH_B(B_stz.R2);Transf("R2 " );	
+	spi_FAPCH_B(B_stz.R3);Transf("R3 " );	
+	spi_FAPCH_B(B_stz.R4);Transf("R4 " );	
+	spi_FAPCH_B(B_stz.R5);Transf("R5 " );
+	
 	spi_FAPCH_B(B_stz.R6);Transf("R6 " );	
 	spi_FAPCH_B(B_stz.R7);Transf("R7 " );	
 	spi_FAPCH_B(B_stz.R8);Transf("R8 " );
@@ -2853,6 +2863,14 @@ void FAPCH_A (char r)
 	spi_FAPCH_A(A_stz.R3);Transf("R3 " );	
 	spi_FAPCH_A(A_stz.R4);Transf("R4 " );	
 	spi_FAPCH_A(A_stz.R5);Transf("R5 " );	
+	
+	spi_FAPCH_A(A_stz.R0);Transf("R0 " );	
+	spi_FAPCH_A(A_stz.R1);Transf("R1 " );	
+	spi_FAPCH_A(A_stz.R2);Transf("R2 " );	
+	spi_FAPCH_A(A_stz.R3);Transf("R3 " );	
+	spi_FAPCH_A(A_stz.R4);Transf("R4 " );	
+	spi_FAPCH_A(A_stz.R5);Transf("R5 " );
+	
 	spi_FAPCH_A(A_stz.R6);Transf("R6 " );	
 	spi_FAPCH_A(A_stz.R7);Transf("R7 " );	
 	spi_FAPCH_A(A_stz.R8);Transf("R8 " );
