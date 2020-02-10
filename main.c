@@ -2228,9 +2228,9 @@ void INIT_REG_FAPCH_B (void)
 	R5B.ADR = 0x05;
 
 //-----------------------
-	R6B.TYPE0 = 6;//выход 0   2 - lvpecl (700 м¬) - выход 0 | 5 - 2000 mV lvPecl
+	R6B.TYPE0 = 5;//выход 0   2 - lvpecl (700 м¬) - выход 0 | 5 - 2000 mV lvPecl
 	R6B.TYPE1 = 0;//выход 1
-	R6B.TYPE2 = 6;//выход 2 , 1 - lvds
+	R6B.TYPE2 = 5;//выход 2 , 1 - lvds  это тактова€ дл€ DD9 - в поделке
 	R6B.TYPE3 = 0;//выход 3
 	R6B.ADR   = 6;
 	
@@ -2340,7 +2340,7 @@ void INIT_REG_FAPCH_A (void)
 	R4B.ADR = 0x04;
 	
 	R5B.RST = 0;
-	R5B.DIV = 252;//360 MHz 7
+	R5B.DIV = 7;//360 MHz 7
 	R5B.PD  = 0x00;
 	R5B.ADR = 0x05;
 
