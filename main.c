@@ -613,7 +613,7 @@ void init_GPIO (void)
     GPIO_Init(GPIOB, &GPIO_InitStructure);	
 	
 	     /* Configure the GPIOC  pin выходы*/
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3|GPIO_Pin_7;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOC, &GPIO_InitStructure);
@@ -1643,7 +1643,13 @@ if (packet_ok==1u)
 if (crc_ok==0x3)  //обработка команд адресатом которых является хозяин 
 {
 
-
+if (strcmp(Word,"sel")==0)                     
+   {
+	 crc_comp =atoi(DATA_Word);
+     u_out ("принял sel:", crc_comp   );
+     if (crc_comp==0) SEL_ETALON_0; else
+	 if (crc_comp==1) SEL_ETALON_1;
+   } else
 if (strcmp(Word,"init")==0)                     
    {
      Transf ("принял init\r"    );

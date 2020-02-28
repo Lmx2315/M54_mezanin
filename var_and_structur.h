@@ -140,6 +140,9 @@ u8 text_buffer_TCP[ZX_MAX_BUF_SIZE];
 #define PD15_0 GPIOD->BRR = GPIO_Pin_15
 #define PD15_1 GPIOD->BSRR= GPIO_Pin_15
 
+#define PC3_0  GPIOC->BRR   = GPIO_Pin_3
+#define PC3_1  GPIOC->BSRR  = GPIO_Pin_3
+
 #define PC6_0  GPIOC->BRR = GPIO_Pin_6
 #define PC6_1  GPIOC->BSRR= GPIO_Pin_6
 
@@ -236,8 +239,11 @@ u8 text_buffer_TCP[ZX_MAX_BUF_SIZE];
 #define A_LE_WIRE_LMK_1 PD2_1
 #define A_LE_WIRE_LMK_0 PD2_0
 
+#define SEL_ETALON_0 PC3_0
+#define SEL_ETALON_1 PC3_1
+
 #define TST1_BUF(a)         ((a==1)?PВ12_1:PВ12_0)
-#define SEL_ETALON(a)       ((a==1)?PA8_1:PA8_0)
-#define RESET_BUF(a)        ((a==1)?PE1_1:PE1_0)
-#define ENABLE_LM25056(a)   ((a==1)?PD7_1:PD7_0)
+#define SEL_ETALON(a)       ((a==1)?PC3_1 :PC3_0 )
+#define RESET_BUF(a)        ((a==1)?PE1_1 :PE1_0 )
+#define ENABLE_LM25056(a)   ((a==1)?PD7_1 :PD7_0 )
 
