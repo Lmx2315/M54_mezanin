@@ -1652,9 +1652,9 @@ if (strcmp(Word,"sel")==0)
    } else
 if (strcmp(Word,"init")==0)                     
    {
-     Transf ("принял init\r"    );
-     Transf("\r");  
-     init_FAPCH (1);
+	 crc_comp =atoi(DATA_Word);
+	 u_out ("принял init:", crc_comp   ); 
+     init_FAPCH (crc_comp);
    } else
 if (strcmp(Word,"btn")==0)                     
    {
@@ -2201,7 +2201,7 @@ void spi_FAPCH_A (u32 d)
    A_LE_WIRE_LMK_0;   
 }
 
-void INIT_REG_FAPCH_B (void)
+void INIT_REG_FAPCH_B_100MHz (void)
 {
 	R0B.RST = 1;
 	R0B.DIV = 25;// 100 MHz  25
@@ -2302,22 +2302,22 @@ void INIT_REG_FAPCH_B (void)
     R26B.EN_PLL_REF_2X = 0;
 	
 	R28B.ADR      = 28;
-    R28B.PLL_R    = 1;
+    R28B.PLL_R    = 5;
 	
 	R29B.ADR 	     =29;
 	R29B.OSCin_FREQ  =1;  //0 < 63 MHz   ; 1>63 MHz to 127 MHz
-    R29B.PLL_N_CAL   =5;  // 5 - 100 MHz ref,25 - 20 MHz ref
+    R29B.PLL_N_CAL   =25;  // 5 - 100 MHz ref,25 - 20 MHz ref
 	
 	R30B.ADR 	     =30;
 	R30B.PLL_P       =5;  // 
-    R30B.PLL_N       =5;  // 5 - 100 MHz ref,25 - 20 MHz ref
+    R30B.PLL_N       =25;  // 5 - 100 MHz ref,25 - 20 MHz ref
 	
 	R31B.ADR 	       =31;
 	R31B.READBACK_ADDR = 0;  // READBACK R0
     R31B.uWire_LOCK    = 0;  // 
 }
 
-void INIT_REG_FAPCH_A (void)
+void INIT_REG_FAPCH_A_100MHz (void)
 {
 	R0B.RST = 1;
 	R0B.DIV = 8;//не нужен
@@ -2431,10 +2431,473 @@ void INIT_REG_FAPCH_A (void)
 	R31B.READBACK_ADDR = 0;  // READBACK R0
     R31B.uWire_LOCK    = 0;  // 
 }
-
-void FAPCH_B (char r)
+//--------------------------------------
+void INIT_REG_FAPCH_B_10MHz (void)
 {
-    INIT_REG_FAPCH_B ();	
+	R0B.RST = 1;
+	R0B.DIV = 25;// 100 MHz  25
+	R0B.PD  = 0x00;
+	R0B.ADR = 0x00;
+
+	R1B.RST = 0;
+	R1B.DIV = 25;// 100 MHz
+	R1B.PD  = 0x00;
+	R1B.ADR = 0x01;
+
+	R2B.RST = 0;
+	R2B.DIV = 100;//6
+	R2B.PD  = 0x00;
+	R2B.ADR = 0x02;
+
+	R3B.RST = 0;
+	R3B.DIV = 250;//10 MHz 250
+	R3B.PD  = 0x00;
+	R3B.ADR = 0x03;
+
+	R4B.RST = 0;
+	R4B.DIV = 20;// 125 MHz
+	R4B.PD  = 0x00;
+	R4B.ADR = 0x04;
+	
+	R5B.RST = 0;
+	R5B.DIV = 250;// 10 MHz 250
+	R5B.PD  = 0x00;
+	R5B.ADR = 0x05;
+
+//-----------------------
+	R6B.TYPE0 = 5;//выход 0   2 - lvpecl (700 мВ) - выход 0 | 5 - 2000 mV lvPecl
+	R6B.TYPE1 = 0;//выход 1
+	R6B.TYPE2 = 5;//выход 2 , 1 - lvds  это тактовая для DD9 - в поделке
+	R6B.TYPE3 = 0;//выход 3
+	R6B.ADR   = 6;
+	
+	
+
+	R7B.TYPE0 = 0;//выход 4,
+	R7B.TYPE1 = 0;//выход 5,
+	R7B.TYPE2 = 2;//выход 6,  //6 - LVCMOS (Norm/Inv)
+	R7B.TYPE3 = 0;//выход 7,
+	R7B.ADR   = 7;
+	
+	R8B.TYPE0 = 0;//выход 8,  //6 - LVCMOS (Norm/Inv) ,1 - lvds
+	R8B.TYPE1 = 0;//выход 9,
+	R8B.TYPE2 = 6;//выход 10, //1 - lvds
+	R8B.TYPE3 = 0;//выход 11,
+	R8B.ADR   = 8;
+	
+	R9B.ADR   = 9;
+//----------------------
+	R10B.TYPE0 = 0;
+	R10B.TYPE1 = 0;
+	R10B.EN1   = 0;
+	R10B.EN0   = 0;
+    R10B.MUX1  = 1;
+	R10B.MUX0  = 1;
+	R10B.DIV   = 7;
+	R10B.ADR   = 10;
+//----------------------
+	R11B.NO_SYNC1 	  = 1;
+	R11B.NO_SYNC3 	  = 1;
+	R11B.NO_SYNC5 	  = 1;
+	R11B.NO_SYNC7 	  = 1;
+	R11B.NO_SYNC9 	  = 1;
+	R11B.NO_SYNC11 	  = 1;
+	R11B.SYNC_POL_INV = 0;//SYNC is active high
+	R11B.SYNC_TYPE 	  = 0;
+	R11B.EN_PLL_XTAL  = 0;
+	R11B.ADR 		  = 11;
+//----------------------
+	R12B.SYNC_PLL_DLD = 0;
+	R12B.LD_TYPE  	  = 3;
+	R12B.LD_MUX	  	  = 2;//PLL R ,LD_MUX sets the output value of the Ftest/LD pin.
+	R12B.ADR 	  	  = 12;
+//----------------------
+	R13B.ADR 	      =13;
+	R13B.GPout0       = 4;  //
+    R13B.READBACK_TYPE= 3;  //Output (push-pull)
+    
+    R14B.ADR       = 14;
+    R14B.GPout1    = 4;
+	
+    R16B.ADR       = 16; //надо программировать!!!
+   
+    R24B.ADR       = 24;
+    R24B.PLL_R3_LF = 0;
+    R24B.PLL_R4_LF = 0;
+    R24B.PLL_C3_LF = 0;
+	R24B.PLL_C4_LF = 0;
+	
+	R26B.ADR           = 26;
+    R26B.PLL_DLD_CNT   = 3;
+    R26B.PLL_CP_GAIN   = 3;//3200 uA
+    R26B.EN_PLL_REF_2X = 0;
+	
+	R28B.ADR      = 28;
+    R28B.PLL_R    = 1;
+	
+	R29B.ADR 	     =29;
+	R29B.OSCin_FREQ  =0;  //0 < 63 MHz   ; 1>63 MHz to 127 MHz
+    R29B.PLL_N_CAL   =50;  // 5 - 100 MHz ref,25 - 20 MHz ref
+	
+	R30B.ADR 	     =30;
+	R30B.PLL_P       =5;  // 
+    R30B.PLL_N       =50;  // 5 - 100 MHz ref,25 - 20 MHz ref
+	
+	R31B.ADR 	       =31;
+	R31B.READBACK_ADDR = 0;  // READBACK R0
+    R31B.uWire_LOCK    = 0;  // 
+}
+
+void INIT_REG_FAPCH_A_10MHz (void)
+{
+	R0B.RST = 1;
+	R0B.DIV = 8;//не нужен
+	R0B.PD  = 0x01;
+	R0B.ADR = 0x00;
+
+	R1B.RST = 0;
+	R1B.DIV = 8;//не нужен
+	R1B.PD  = 0x01;
+	R1B.ADR = 0x01;
+
+	R2B.RST = 0;
+	R2B.DIV = 6;//не нужен
+	R2B.PD  = 0x01;
+	R2B.ADR = 0x02;
+
+	R3B.RST = 0;
+	R3B.DIV = 6;//не нужен
+	R3B.PD  = 0x01;
+	R3B.ADR = 0x03;
+
+	R4B.RST = 0;
+	R4B.DIV = 252;//не нужен
+	R4B.PD  = 0x01;
+	R4B.ADR = 0x04;
+	
+	R5B.RST = 0;
+	R5B.DIV = 7;//360 MHz 7
+	R5B.PD  = 0x00;
+	R5B.ADR = 0x05;
+
+//-----------------------
+	R6B.TYPE0 = 0;//2 -lvpecl (700 мВ) - выход 0
+	R6B.TYPE1 = 0;//выход 1
+	R6B.TYPE2 = 0;//выход 2 , 1 - lvds
+	R6B.TYPE3 = 0;//выход 3
+	R6B.ADR   = 6;
+
+	R7B.TYPE0 = 0;//выход 4,
+	R7B.TYPE1 = 0;//выход 5,
+	R7B.TYPE2 = 0;//выход 6,
+	R7B.TYPE3 = 0;//выход 7,
+	R7B.ADR   = 7;
+	
+	R8B.TYPE0 = 0;//выход 8,
+	R8B.TYPE1 = 0;//выход 9,
+	R8B.TYPE2 = 2;//выход 10,2 -lvpecl (700 мВ)  LVPECL (2000 mVpp)
+	R8B.TYPE3 = 2;//выход 11,2 -lvpecl (700 мВ)  LVPECL (2000 mVpp)
+	R8B.ADR   = 8;
+	
+	R9B.ADR   = 9;
+//----------------------
+	R10B.TYPE0 = 0;
+	R10B.TYPE1 = 0;
+	R10B.EN1   = 0;
+	R10B.EN0   = 0;
+    R10B.MUX1  = 1;
+	R10B.MUX0  = 1;
+	R10B.DIV   = 7;
+	R10B.ADR   = 10;
+//----------------------
+	R11B.NO_SYNC1 	  = 1;
+	R11B.NO_SYNC3 	  = 1;
+	R11B.NO_SYNC5 	  = 1;
+	R11B.NO_SYNC7 	  = 1;
+	R11B.NO_SYNC9 	  = 1;
+	R11B.NO_SYNC11 	  = 1;
+	R11B.SYNC_POL_INV = 0;//SYNC is active high
+	R11B.SYNC_TYPE 	  = 0;
+	R11B.EN_PLL_XTAL  = 0;
+	R11B.ADR 		  = 11;
+//----------------------
+	R12B.SYNC_PLL_DLD = 0;
+	R12B.LD_TYPE  	  = 3;
+	R12B.LD_MUX	  	  = 2;//PLL R ,LD_MUX sets the output value of the Ftest/LD pin.
+	R12B.ADR 	  	  = 12;
+//----------------------
+	R13B.ADR 	      =13;
+	R13B.GPout0       = 4;  //
+    R13B.READBACK_TYPE= 3;  //Output (push-pull)
+  
+  
+    R14B.ADR       = 14;
+    R14B.GPout1    = 4;
+	
+    R16B.ADR       = 16; //надо программировать!!!
+   
+    R24B.ADR       = 24;
+    R24B.PLL_R3_LF = 0;
+    R24B.PLL_R4_LF = 0;
+    R24B.PLL_C3_LF = 0;
+	R24B.PLL_C4_LF = 0;
+	
+	R26B.ADR           = 26;
+    R26B.PLL_DLD_CNT   = 3;
+    R26B.PLL_CP_GAIN   = 3;
+    R26B.EN_PLL_REF_2X = 0;
+	
+	R28B.ADR      = 28;
+    R28B.PLL_R    = 1;//5 - 100 Mhz   1- 20 MHz
+	
+	R29B.ADR 	     =29;
+	R29B.OSCin_FREQ  = 0;  // >63 MHz to 127 MHz
+    R29B.PLL_N_CAL   =126;  // 63 - 20MHz
+	
+	R30B.ADR 	     =30;
+	R30B.PLL_P       = 2;  //  2 -  100 MHz
+    R30B.PLL_N       =126;  // 63 - 100 MHz
+	
+	R31B.ADR 	       =31;
+	R31B.READBACK_ADDR = 0;  // READBACK R0
+    R31B.uWire_LOCK    = 0;  // 
+}
+//--------------------------------------------------
+
+void INIT_REG_FAPCH_B_5MHz (void)
+{
+	R0B.RST = 1;
+	R0B.DIV = 25;// 100 MHz  25
+	R0B.PD  = 0x00;
+	R0B.ADR = 0x00;
+
+	R1B.RST = 0;
+	R1B.DIV = 25;// 100 MHz
+	R1B.PD  = 0x00;
+	R1B.ADR = 0x01;
+
+	R2B.RST = 0;
+	R2B.DIV = 100;//6
+	R2B.PD  = 0x00;
+	R2B.ADR = 0x02;
+
+	R3B.RST = 0;
+	R3B.DIV = 250;//10 MHz 250
+	R3B.PD  = 0x00;
+	R3B.ADR = 0x03;
+
+	R4B.RST = 0;
+	R4B.DIV = 20;// 125 MHz
+	R4B.PD  = 0x00;
+	R4B.ADR = 0x04;
+	
+	R5B.RST = 0;
+	R5B.DIV = 250;// 10 MHz 250
+	R5B.PD  = 0x00;
+	R5B.ADR = 0x05;
+
+//-----------------------
+	R6B.TYPE0 = 5;//выход 0   2 - lvpecl (700 мВ) - выход 0 | 5 - 2000 mV lvPecl
+	R6B.TYPE1 = 0;//выход 1
+	R6B.TYPE2 = 5;//выход 2 , 1 - lvds  это тактовая для DD9 - в поделке
+	R6B.TYPE3 = 0;//выход 3
+	R6B.ADR   = 6;
+	
+	
+
+	R7B.TYPE0 = 0;//выход 4,
+	R7B.TYPE1 = 0;//выход 5,
+	R7B.TYPE2 = 2;//выход 6,  //6 - LVCMOS (Norm/Inv)
+	R7B.TYPE3 = 0;//выход 7,
+	R7B.ADR   = 7;
+	
+	R8B.TYPE0 = 0;//выход 8,  //6 - LVCMOS (Norm/Inv) ,1 - lvds
+	R8B.TYPE1 = 0;//выход 9,
+	R8B.TYPE2 = 6;//выход 10, //1 - lvds
+	R8B.TYPE3 = 0;//выход 11,
+	R8B.ADR   = 8;
+	
+	R9B.ADR   = 9;
+//----------------------
+	R10B.TYPE0 = 0;
+	R10B.TYPE1 = 0;
+	R10B.EN1   = 0;
+	R10B.EN0   = 0;
+    R10B.MUX1  = 1;
+	R10B.MUX0  = 1;
+	R10B.DIV   = 7;
+	R10B.ADR   = 10;
+//----------------------
+	R11B.NO_SYNC1 	  = 1;
+	R11B.NO_SYNC3 	  = 1;
+	R11B.NO_SYNC5 	  = 1;
+	R11B.NO_SYNC7 	  = 1;
+	R11B.NO_SYNC9 	  = 1;
+	R11B.NO_SYNC11 	  = 1;
+	R11B.SYNC_POL_INV = 0;//SYNC is active high
+	R11B.SYNC_TYPE 	  = 0;
+	R11B.EN_PLL_XTAL  = 0;
+	R11B.ADR 		  = 11;
+//----------------------
+	R12B.SYNC_PLL_DLD = 0;
+	R12B.LD_TYPE  	  = 3;
+	R12B.LD_MUX	  	  = 2;//PLL R ,LD_MUX sets the output value of the Ftest/LD pin.
+	R12B.ADR 	  	  = 12;
+//----------------------
+	R13B.ADR 	      =13;
+	R13B.GPout0       = 4;  //
+    R13B.READBACK_TYPE= 3;  //Output (push-pull)
+    
+    R14B.ADR       = 14;
+    R14B.GPout1    = 4;
+	
+    R16B.ADR       = 16; //надо программировать!!!
+   
+    R24B.ADR       = 24;
+    R24B.PLL_R3_LF = 0;
+    R24B.PLL_R4_LF = 0;
+    R24B.PLL_C3_LF = 0;
+	R24B.PLL_C4_LF = 0;
+	
+	R26B.ADR           = 26;
+    R26B.PLL_DLD_CNT   = 3;
+    R26B.PLL_CP_GAIN   = 3;//3200 uA
+    R26B.EN_PLL_REF_2X = 0;
+	
+	R28B.ADR      = 28;
+    R28B.PLL_R    = 1;
+	
+	R29B.ADR 	     =29;
+	R29B.OSCin_FREQ  =0;  //0 < 63 MHz   ; 1>63 MHz to 127 MHz
+    R29B.PLL_N_CAL   =250;  // 5 - 100 MHz ref,25 - 20 MHz ref
+	
+	R30B.ADR 	     =30;
+	R30B.PLL_P       =2;  // 
+    R30B.PLL_N       =250;  // 5 - 100 MHz ref,25 - 20 MHz ref
+	
+	R31B.ADR 	       =31;
+	R31B.READBACK_ADDR = 0;  // READBACK R0
+    R31B.uWire_LOCK    = 0;  // 
+}
+
+void INIT_REG_FAPCH_A_5MHz (void)
+{
+	R0B.RST = 1;
+	R0B.DIV = 8;//не нужен
+	R0B.PD  = 0x01;
+	R0B.ADR = 0x00;
+
+	R1B.RST = 0;
+	R1B.DIV = 8;//не нужен
+	R1B.PD  = 0x01;
+	R1B.ADR = 0x01;
+
+	R2B.RST = 0;
+	R2B.DIV = 6;//не нужен
+	R2B.PD  = 0x01;
+	R2B.ADR = 0x02;
+
+	R3B.RST = 0;
+	R3B.DIV = 6;//не нужен
+	R3B.PD  = 0x01;
+	R3B.ADR = 0x03;
+
+	R4B.RST = 0;
+	R4B.DIV = 252;//не нужен
+	R4B.PD  = 0x01;
+	R4B.ADR = 0x04;
+	
+	R5B.RST = 0;
+	R5B.DIV = 7;//360 MHz 7
+	R5B.PD  = 0x00;
+	R5B.ADR = 0x05;
+
+//-----------------------
+	R6B.TYPE0 = 0;//2 -lvpecl (700 мВ) - выход 0
+	R6B.TYPE1 = 0;//выход 1
+	R6B.TYPE2 = 0;//выход 2 , 1 - lvds
+	R6B.TYPE3 = 0;//выход 3
+	R6B.ADR   = 6;
+
+	R7B.TYPE0 = 0;//выход 4,
+	R7B.TYPE1 = 0;//выход 5,
+	R7B.TYPE2 = 0;//выход 6,
+	R7B.TYPE3 = 0;//выход 7,
+	R7B.ADR   = 7;
+	
+	R8B.TYPE0 = 0;//выход 8,
+	R8B.TYPE1 = 0;//выход 9,
+	R8B.TYPE2 = 2;//выход 10,2 -lvpecl (700 мВ)  LVPECL (2000 mVpp)
+	R8B.TYPE3 = 2;//выход 11,2 -lvpecl (700 мВ)  LVPECL (2000 mVpp)
+	R8B.ADR   = 8;
+	
+	R9B.ADR   = 9;
+//----------------------
+	R10B.TYPE0 = 0;
+	R10B.TYPE1 = 0;
+	R10B.EN1   = 0;
+	R10B.EN0   = 0;
+    R10B.MUX1  = 1;
+	R10B.MUX0  = 1;
+	R10B.DIV   = 7;
+	R10B.ADR   = 10;
+//----------------------
+	R11B.NO_SYNC1 	  = 1;
+	R11B.NO_SYNC3 	  = 1;
+	R11B.NO_SYNC5 	  = 1;
+	R11B.NO_SYNC7 	  = 1;
+	R11B.NO_SYNC9 	  = 1;
+	R11B.NO_SYNC11 	  = 1;
+	R11B.SYNC_POL_INV = 0;//SYNC is active high
+	R11B.SYNC_TYPE 	  = 0;
+	R11B.EN_PLL_XTAL  = 0;
+	R11B.ADR 		  = 11;
+//----------------------
+	R12B.SYNC_PLL_DLD = 0;
+	R12B.LD_TYPE  	  = 3;
+	R12B.LD_MUX	  	  = 2;//PLL R ,LD_MUX sets the output value of the Ftest/LD pin.
+	R12B.ADR 	  	  = 12;
+//----------------------
+	R13B.ADR 	      =13;
+	R13B.GPout0       = 4;  //
+    R13B.READBACK_TYPE= 3;  //Output (push-pull)
+  
+  
+    R14B.ADR       = 14;
+    R14B.GPout1    = 4;
+	
+    R16B.ADR       = 16; //надо программировать!!!
+   
+    R24B.ADR       = 24;
+    R24B.PLL_R3_LF = 0;
+    R24B.PLL_R4_LF = 0;
+    R24B.PLL_C3_LF = 0;
+	R24B.PLL_C4_LF = 0;
+	
+	R26B.ADR           = 26;
+    R26B.PLL_DLD_CNT   = 3;
+    R26B.PLL_CP_GAIN   = 3;
+    R26B.EN_PLL_REF_2X = 0;
+	
+	R28B.ADR      = 28;
+    R28B.PLL_R    = 1;//5 - 100 Mhz   1- 20 MHz
+	
+	R29B.ADR 	     =29;
+	R29B.OSCin_FREQ  = 0;  // >63 MHz to 127 MHz
+    R29B.PLL_N_CAL   =252;  // 63 - 20MHz
+	
+	R30B.ADR 	     =30;
+	R30B.PLL_P       = 2;  //  2 -  100 MHz
+    R30B.PLL_N       =252;  // 63 - 100 MHz
+	
+	R31B.ADR 	       =31;
+	R31B.READBACK_ADDR = 0;  // READBACK R0
+    R31B.uWire_LOCK    = 0;  // 
+}
+
+void FAPCH_B (void)
+{
+ //   INIT_REG_FAPCH_B ();	
 
 	B_stz.R0 =0x00000000;
 	B_stz.R0 =	     B_stz.R0|
@@ -2665,9 +3128,9 @@ void FAPCH_B (char r)
 	SYNC_LMK_1;
 }
 
-void FAPCH_A (char r)
+void FAPCH_A (void)
 {
-    INIT_REG_FAPCH_A ();	
+ //   INIT_REG_FAPCH_A ();	
 
 	A_stz.R0 =0x00000000;
 	A_stz.R0 =	     A_stz.R0|
@@ -2900,14 +3363,14 @@ void FAPCH_A (char r)
 
 void init_FAPCH (u8 a)
 {
-	if (a==1)
+	if (a==100)
 	{
 	
 	 Transf("\r\n" );
 	 Transf("-----------------------------------\r\n" );
-	 Transf("Пришла команда активации кассеты!!!\r\n" );
-	 Transf("Программирую ФАПЧ_A:\r" );
-     FAPCH_A (0);
+	 Transf("Программирую REF=100 MHz,ФАПЧ_A:\r" );
+	 INIT_REG_FAPCH_A_100MHz();
+     FAPCH_A();
 	 Transf("...\r" );
 	 Transf("Выполненно!\r" );
 	 Transf("\r\n" );	
@@ -2915,12 +3378,56 @@ void init_FAPCH (u8 a)
 	 //----------------------------------------------
 	 Transf("\r\n" );
 	 Transf("-----------------------------------\r\n" );
-	 Transf("Программирую ФАПЧ_B:\r" );
-     FAPCH_B (1);
+	 Transf("Программирую REF=100 MHz, ФАПЧ_B:\r" );
+	 INIT_REG_FAPCH_B_100MHz();
+     FAPCH_B();
 	 Transf("...\r" );
 	 Transf("Выполненно!\r" );
+	 Transf("\r\n" );	 
+	}
+	
+	if (a==10)
+	{	
 	 Transf("\r\n" );
-	 
+	 Transf("-----------------------------------\r\n" );
+	 Transf("Программирую REF=10 MHz, ФАПЧ_A:\r" );
+	 INIT_REG_FAPCH_A_10MHz();
+     FAPCH_A();
+	 Transf("...\r" );
+	 Transf("Выполненно!\r" );
+	 Transf("\r\n" );	
+	
+	 //----------------------------------------------
+	 Transf("\r\n" );
+	 Transf("-----------------------------------\r\n" );
+	 Transf("Программирую REF=10 MHz, ФАПЧ_B:\r" );
+	 INIT_REG_FAPCH_B_10MHz();
+     FAPCH_B();
+	 Transf("...\r" );
+	 Transf("Выполненно!\r" );
+	 Transf("\r\n" );	 
+	}
+	
+		if (a==5)
+	{	
+	 Transf("\r\n" );
+	 Transf("-----------------------------------\r\n" );
+	 Transf("Программирую REF=5 MHz, ФАПЧ_A:\r" );
+	 INIT_REG_FAPCH_A_5MHz();
+     FAPCH_A();
+	 Transf("...\r" );
+	 Transf("Выполненно!\r" );
+	 Transf("\r\n" );	
+	
+	 //----------------------------------------------
+	 Transf("\r\n" );
+	 Transf("-----------------------------------\r\n" );
+	 Transf("Программирую REF=5 MHz, ФАПЧ_B:\r" );
+	 INIT_REG_FAPCH_B_5MHz();
+     FAPCH_B();
+	 Transf("...\r" );
+	 Transf("Выполненно!\r" );
+	 Transf("\r\n" );	 
 	}
 }
 //--------------------------------
@@ -3137,7 +3644,7 @@ I2C_delay=100;
 
 Massiv_dbm(1); //расчёт массива ДБ для детектора
 
-init_FAPCH (1);
+init_FAPCH (100);
 
 while(1)
  {
