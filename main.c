@@ -2284,8 +2284,7 @@ void INIT_REG_FAPCH_B (void)
 	R13B.ADR 	      =13;
 	R13B.GPout0       = 4;  //
     R13B.READBACK_TYPE= 3;  //Output (push-pull)
-  
-  
+    
     R14B.ADR       = 14;
     R14B.GPout1    = 4;
 	
@@ -2306,7 +2305,7 @@ void INIT_REG_FAPCH_B (void)
     R28B.PLL_R    = 1;
 	
 	R29B.ADR 	     =29;
-	R29B.OSCin_FREQ  = 0;  //0 < 63 MHz   ; 1>63 MHz to 127 MHz
+	R29B.OSCin_FREQ  =1;  //0 < 63 MHz   ; 1>63 MHz to 127 MHz
     R29B.PLL_N_CAL   =5;  // 5 - 100 MHz ref,25 - 20 MHz ref
 	
 	R30B.ADR 	     =30;
@@ -2414,7 +2413,7 @@ void INIT_REG_FAPCH_A (void)
 	
 	R26B.ADR           = 26;
     R26B.PLL_DLD_CNT   = 3;
-    R26B.PLL_CP_GAIN   = 2;
+    R26B.PLL_CP_GAIN   = 3;
     R26B.EN_PLL_REF_2X = 0;
 	
 	R28B.ADR      = 28;
@@ -2910,7 +2909,7 @@ void init_FAPCH (u8 a)
 	 Transf("Программирую ФАПЧ_A:\r" );
      FAPCH_A (0);
 	 Transf("...\r" );
-	 Transf("неВыполненно!\r" );
+	 Transf("Выполненно!\r" );
 	 Transf("\r\n" );	
 	
 	 //----------------------------------------------
