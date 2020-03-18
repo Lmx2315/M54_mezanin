@@ -209,8 +209,8 @@ u8 text_buffer_TCP[ZX_MAX_BUF_SIZE];
 #define PB15_0  GPIOB->BRR   = GPIO_Pin_15
 #define PB15_1  GPIOB->BSRR  = GPIO_Pin_15
 
-#define SYNC_LMK_0  PC7_0
-#define SYNC_LMK_1  PC7_1
+#define SYNC_LMK_1 PC7_1
+#define SYNC_LMK_0 PC7_0
 
 #define CS_AT45_0  PA12_0
 #define CS_AT45_1  PA12_1

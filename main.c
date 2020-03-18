@@ -1643,6 +1643,13 @@ if (packet_ok==1u)
 if (crc_ok==0x3)  //обработка команд адресатом которых является хозяин 
 {
 
+if (strcmp(Word,"sync")==0)                     
+   {
+	 crc_comp =atoi(DATA_Word);
+     u_out ("принял sync:", crc_comp   );
+     if (crc_comp!=0) SYNC_LMK_1;
+	 else  			  SYNC_LMK_0;
+   } else
 if (strcmp(Word,"sel")==0)                     
    {
 	 crc_comp =atoi(DATA_Word);
@@ -2265,14 +2272,14 @@ void INIT_REG_FAPCH_B_100MHz (void)
 	R10B.DIV   = 7;
 	R10B.ADR   = 10;
 //----------------------
-	R11B.NO_SYNC1 	  = 1;
-	R11B.NO_SYNC3 	  = 1;
-	R11B.NO_SYNC5 	  = 1;
-	R11B.NO_SYNC7 	  = 1;
-	R11B.NO_SYNC9 	  = 1;
-	R11B.NO_SYNC11 	  = 1;
+	R11B.NO_SYNC1 	  = 0;
+	R11B.NO_SYNC3 	  = 0;
+	R11B.NO_SYNC5 	  = 0;
+	R11B.NO_SYNC7 	  = 0;
+	R11B.NO_SYNC9 	  = 0;
+	R11B.NO_SYNC11 	  = 0;
 	R11B.SYNC_POL_INV = 0;//SYNC is active high
-	R11B.SYNC_TYPE 	  = 0;
+	R11B.SYNC_TYPE 	  = 1;
 	R11B.EN_PLL_XTAL  = 0;
 	R11B.ADR 		  = 11;
 //----------------------
@@ -2379,14 +2386,14 @@ void INIT_REG_FAPCH_A_100MHz (void)
 	R10B.DIV   = 7;
 	R10B.ADR   = 10;
 //----------------------
-	R11B.NO_SYNC1 	  = 1;
-	R11B.NO_SYNC3 	  = 1;
-	R11B.NO_SYNC5 	  = 1;
-	R11B.NO_SYNC7 	  = 1;
-	R11B.NO_SYNC9 	  = 1;
-	R11B.NO_SYNC11 	  = 1;
+	R11B.NO_SYNC1 	  = 0;
+	R11B.NO_SYNC3 	  = 0;
+	R11B.NO_SYNC5 	  = 0;
+	R11B.NO_SYNC7 	  = 0;
+	R11B.NO_SYNC9 	  = 0;
+	R11B.NO_SYNC11 	  = 0;
 	R11B.SYNC_POL_INV = 0;//SYNC is active high
-	R11B.SYNC_TYPE 	  = 0;
+	R11B.SYNC_TYPE 	  = 1;//SYNC IO pin type
 	R11B.EN_PLL_XTAL  = 0;
 	R11B.ADR 		  = 11;
 //----------------------
@@ -3126,6 +3133,8 @@ void FAPCH_B (void)
 	SYNC_LMK_0;
 	delay_us(100);
 	SYNC_LMK_1;
+	delay_us(100);
+	SYNC_LMK_0;
 }
 
 void FAPCH_A (void)
@@ -3359,6 +3368,8 @@ void FAPCH_A (void)
 	SYNC_LMK_0;
 	delay_us(100);
 	SYNC_LMK_1;
+	delay_us(100);
+	SYNC_LMK_0;
 }
 
 void init_FAPCH (u8 a)
