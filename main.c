@@ -2216,22 +2216,22 @@ void spi_FAPCH_A (u32 d)
 void INIT_REG_FAPCH_B_100MHz (void)
 {
 	R0B.RST = 1;
-	R0B.DIV = 25;// 100 MHz  25
+	R0B.DIV = 24;// 100 MHz  25
 	R0B.PD  = 0x00;
 	R0B.ADR = 0x00;
 
 	R1B.RST = 0;
-	R1B.DIV = 25;// 100 MHz
+	R1B.DIV = 24;// 100 MHz
 	R1B.PD  = 0;
 	R1B.ADR = 0x01;
 
 	R2B.RST = 0;
 	R2B.DIV = 100;//6
-	R2B.PD  = 0x00;
+	R2B.PD  = 0x01;
 	R2B.ADR = 0x02;
 
 	R3B.RST = 0;
-	R3B.DIV = 250;//10 MHz 250
+	R3B.DIV = 240;//10 MHz 250
 	R3B.PD  = 0x00;
 	R3B.ADR = 0x03;
 
@@ -2241,7 +2241,7 @@ void INIT_REG_FAPCH_B_100MHz (void)
 	R4B.ADR = 0x04;
 	
 	R5B.RST = 0;
-	R5B.DIV = 250;// 10 MHz 250
+	R5B.DIV = 240;// 10 MHz 250
 	R5B.PD  = 0x00;
 	R5B.ADR = 0x05;
 
@@ -2310,19 +2310,19 @@ void INIT_REG_FAPCH_B_100MHz (void)
 	
 	R26B.ADR           = 26;
     R26B.PLL_DLD_CNT   = 3;
-    R26B.PLL_CP_GAIN   = 2;//3200 uA
+    R26B.PLL_CP_GAIN   = 2;  //3200 uA
     R26B.EN_PLL_REF_2X = 0;
 	
 	R28B.ADR      = 28;
     R28B.PLL_R    = 100;
 	
 	R29B.ADR 	     =29;
-	R29B.OSCin_FREQ  =1;  //0 < 63 MHz   ; 1>63 MHz to 127 MHz
-    R29B.PLL_N_CAL   =300;  // 5 - 100 MHz ref,25 - 20 MHz ref
+	R29B.OSCin_FREQ  =1;     //0 < 63 MHz   ; 1>63 MHz to 127 MHz
+    R29B.PLL_N_CAL   =300;    // 5 - 100 MHz ref,25 - 20 MHz ref
 	
 	R30B.ADR 	     =30;
-	R30B.PLL_P       =8;  // 
-    R30B.PLL_N       =300;  // 5 - 100 MHz ref,25 - 20 MHz ref
+	R30B.PLL_P       =8;     // 
+    R30B.PLL_N       =300;    // 5 - 100 MHz ref,25 - 20 MHz ref
 	
 	R31B.ADR 	       =31;
 	R31B.READBACK_ADDR = 0;  // READBACK R0
@@ -2418,10 +2418,10 @@ void INIT_REG_FAPCH_A_100MHz (u32 freq)
     R16B.ADR       = 16; //надо программировать!!!
    
     R24B.ADR       = 24;
-    R24B.PLL_R3_LF = 1;//200R
-    R24B.PLL_R4_LF = 1;//200R
-    R24B.PLL_C3_LF = 7;//0.01nF
-	R24B.PLL_C4_LF = 7;//0.01nF
+    R24B.PLL_R3_LF = 0;//200R
+    R24B.PLL_R4_LF = 0;//200R
+    R24B.PLL_C3_LF = 0;//0.01nF
+	R24B.PLL_C4_LF = 0;//0.01nF
 	
 	R26B.ADR           = 26;
     R26B.PLL_DLD_CNT   = 3000;//window of acceptable phase error
@@ -2429,7 +2429,7 @@ void INIT_REG_FAPCH_A_100MHz (u32 freq)
     R26B.EN_PLL_REF_2X = 0;
 	
 	R28B.ADR         =  28;
-    R28B.PLL_R       = 100; //5 - 100 Mhz   1- 20 MHz
+    R28B.PLL_R       = 100; //100 - 100 Mhz   10- 10 MHz
 	
 	R29B.ADR 	     = 29;
 	R29B.OSCin_FREQ  =  1;   // >63 MHz to 127 MHz
@@ -2921,7 +2921,7 @@ void init_FAPCH (u8 a)
 	 Transf("\r\n" );
 	 Transf("-----------------------------------\r\n" );
 	 Transf("Программирую REF=100 MHz,ФАПЧ_A:\r" );
-	 INIT_REG_FAPCH_A_100MHz(357);
+	 INIT_REG_FAPCH_A_100MHz(360);
      FAPCH_A();
 	 Transf("...\r" );
 	 Transf("Выполненно!\r" );
