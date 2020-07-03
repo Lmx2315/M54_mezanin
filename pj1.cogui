@@ -40,7 +40,7 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Work/Project_M54/M54_mezanin_v2/main.c" title="main.c" tooltip="C:/Work/Project_M54/M54_mezanin_v2/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="78356" selectionTopPixel="46905"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="60134" selectionTopPixel="35955"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="eth.c" partName="eth.c" path="C:/Work/Project_Testboard/STM32/W5200/my/eth.c" title="eth.c" tooltip="C:/Work/Project_Testboard/STM32/W5200/my/eth.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/eth.c"/>
@@ -322,12 +322,6 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/pj1/stm_lib/inc/stm32f10x_gpio.h"/>
 </editors>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="385" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="515" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="1167" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
@@ -468,8 +462,14 @@
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="78182" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="0">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="78356" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="78504" y="2"/>
+</item>
+<item active="true" historyLabel="main.c" index="0">
+<position info="not_deleted" x="60134" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
