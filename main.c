@@ -2538,7 +2538,7 @@ void INIT_REG_FAPCH_B_REF10MHz (void)
 	
 	R26B.ADR           = 26;
     R26B.PLL_DLD_CNT   = 3;
-    R26B.PLL_CP_GAIN   = 0;  //3200 uA
+    R26B.PLL_CP_GAIN   = 3;  //3200 uA
     R26B.EN_PLL_REF_2X = 0;
 	
 	R28B.ADR      = 28;
@@ -2705,7 +2705,7 @@ void INIT_REG_FAPCH_A_REF10MHz_410 (u32 freq)
   R4B.ADR = 0x04;
   
   R5B.RST = 0;
-  R5B.DIV = 6;//410 MHz 
+  R5B.DIV = 6;//411 MHz 
   R5B.PD  = 0x00;
   R5B.ADR = 0x05;
 
@@ -2752,7 +2752,7 @@ void INIT_REG_FAPCH_A_REF10MHz_410 (u32 freq)
 //----------------------
   R12B.SYNC_PLL_DLD = 0;
   R12B.LD_TYPE      = 3;
-  R12B.LD_MUX       = 2;//PLL R ,LD_MUX sets the output value of the Ftest/LD pin.
+  R12B.LD_MUX       = 0;//PLL R ,LD_MUX sets the output value of the Ftest/LD pin.
   R12B.ADR          = 12;
 //----------------------
     R13B.ADR          =13;
@@ -2773,19 +2773,19 @@ void INIT_REG_FAPCH_A_REF10MHz_410 (u32 freq)
   
     R26B.ADR           = 26;
     R26B.PLL_DLD_CNT   = 3000;//window of acceptable phase error
-    R26B.PLL_CP_GAIN   = 3;   //CHARGE PUMP CURRENT (µA) 0 -0.1 mA |1 - 0.4 mA|2-1.6 mA|3 - 3.2 mA
+    R26B.PLL_CP_GAIN   = 0;   //CHARGE PUMP CURRENT (µA) 0 -0.1 mA |1 - 0.4 mA|2-1.6 mA|3 - 3.2 mA
     R26B.EN_PLL_REF_2X = 0;
   
     R28B.ADR           = 28;
-    R28B.PLL_R         = 4; //100 - 100 Mhz   10- 10 MHz
+    R28B.PLL_R         = 5;   //   PLL2_R
   
     R29B.ADR           = 29;
-    R29B.OSCin_FREQ    =  0;   // >63 MHz to 127 MHz
-    R29B.PLL_N_CAL     =123;  // 63 - 20MHz
+    R29B.OSCin_FREQ    =  0;  // >63 MHz to 127 MHz
+    R29B.PLL_N_CAL     =411;  //   PLL2_N
   
     R30B.ADR           = 30;
-    R30B.PLL_P         =  8;  //  2 -  100 MHz
-    R30B.PLL_N         =123;  // 63 - 100 MHz
+    R30B.PLL_P         =  3;  //   PLL2_N_PRE  
+    R30B.PLL_N         =411;  //   PLL2_N
   
     R31B.ADR           =31;
     R31B.READBACK_ADDR = 0;  // READBACK R0
