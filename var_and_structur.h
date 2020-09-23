@@ -21,9 +21,9 @@
 u32 SYNC_T0Tnc;
 u32 START_packet;
 
-u32 TNC_actual; //Ñ‚ÐµÐºÑƒÑ‰Ð¸Ð¹ Ð¢ÐÐ¦	
-u32 TNO_actual; //Ñ‚ÐµÐºÑƒÑ‰Ð¸Ð¹ Ð¢ÐÐž
-u32 CEV_actual; //Ñ‚ÐµÐºÑƒÑ‰Ð¸Ð¹ Ð¡Ð•Ð’
+u32 TNC_actual; //òåêóùèé ÒÍÖ	
+u32 TNO_actual; //òåêóùèé ÒÍÎ
+u32 CEV_actual; //òåêóùèé ÑÅÂ
 u32 FLAG_TOBM;
 u32 FLAG_START;
 
@@ -49,8 +49,8 @@ u32 sch_packet_UDP_reciv;
 u8  flag_RX_UDP;
 u32 RX_resive_MAX;
 u32 lsr_razmer;
-u32 TIMER_UDP_LS_DOWN;//ÑÑ‡Ñ‘Ñ‚Ñ‡Ð¸Ðº Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸ ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ñ Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ Ð»Ð¸Ð½Ð¸Ð¸ UDP ETHERNET
-u16 text_lengh_TCP; //Ð´Ð»Ð¸Ð½Ð½Ð° Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÑÐµÐ¼Ñ‹Ñ… Ð´Ð°Ð½Ð½Ñ‹Ñ…
+u32 TIMER_UDP_LS_DOWN;//ñ÷¸ò÷èê âðåìåíè êîíòðîëÿ ðàáîòû ëèíèè UDP ETHERNET
+u16 text_lengh_TCP; //äëèííà îòïðàâëÿåìûõ äàííûõ
 
 
 #define RX_MAX_BUF_SIZE  200
@@ -200,6 +200,9 @@ u8 text_buffer_TCP[ZX_MAX_BUF_SIZE];
 #define PB9_0  GPIOB->BRR   = GPIO_Pin_9
 #define PB9_1  GPIOB->BSRR  = GPIO_Pin_9
 
+#define PB11_0  GPIOB->BRR   = GPIO_Pin_11
+#define PB11_1  GPIOB->BSRR  = GPIO_Pin_11
+
 #define PB12_0  GPIOB->BRR   = GPIO_Pin_12
 #define PB12_1  GPIOB->BSRR  = GPIO_Pin_12
 
@@ -242,7 +245,7 @@ u8 text_buffer_TCP[ZX_MAX_BUF_SIZE];
 #define SEL_ETALON_0 PC3_0
 #define SEL_ETALON_1 PC3_1
 
-#define TST1_BUF(a)         ((a==1)?PÐ’12_1:PÐ’12_0)
+#define TST1_BUF(a)         ((a==1)?PÂ12_1:PÂ12_0)
 #define SEL_ETALON(a)       ((a==1)?PC3_1 :PC3_0 )
 #define RESET_BUF(a)        ((a==1)?PE1_1 :PE1_0 )
 #define ENABLE_LM25056(a)   ((a==1)?PD7_1 :PD7_0 )

@@ -601,13 +601,13 @@ void init_GPIO (void)
     GPIO_Init(GPIOA, &GPIO_InitStructure);
 
      /* Configure the GPIOB  pin выходы*/
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8|GPIO_Pin_11;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOB, &GPIO_InitStructure);
 
      /* Configure the GPIOB  pin входы*/
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5|GPIO_Pin_10;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOB, &GPIO_InitStructure);	
@@ -3623,6 +3623,7 @@ int main(void)
 
     Menu1(0);
 	
+	
 //-----------»Ќ»÷»јЋ»«ј÷»я-------------
 I2C_delay=100;
 //----------------------------------------
@@ -3630,6 +3631,7 @@ IO("~0 sel:1;");//1-out REF | 0 - in REF
 Massiv_dbm(1); //расчЄт массива ƒЅ дл€ детектора
 
 init_FAPCH (410);
+PB11_1;
 
 while(1)
  {
