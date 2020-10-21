@@ -9,71 +9,10 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
-<part id="7"/>
-<part id="8"/>
-<part id="9"/>
-<part id="10"/>
-<part id="11"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
-<editor id="org.coocox.builder.ui.editors.ConfigEditor" name="" partName="" title="" tooltip="" workbook="DefaultEditorWorkbook">
-<input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">&#x0A;<org.coocox.builder.ui.editors.ConfigEditor/>
-</input>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="var_and_structur.h" partName="var_and_structur.h" path="C:/Work/Project_M54/M54_mezanin_v2/var_and_structur.h" title="var_and_structur.h" tooltip="C:/Work/Project_M54/M54_mezanin_v2/var_and_structur.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/var_and_structur.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5146" selectionTopPixel="2781"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="eth.h" partName="eth.h" path="C:/Work/Project_Testboard/STM32/W5200/my/eth.h" title="eth.h" tooltip="C:/Work/Project_Testboard/STM32/W5200/my/eth.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/eth.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="19485" selectionTopPixel="8130"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Work/Project_M54/M54_mezanin_v2/main.c" title="main.c" tooltip="C:/Work/Project_M54/M54_mezanin_v2/main.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="60362" selectionTopPixel="36090"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="eth.c" partName="eth.c" path="C:/Work/Project_Testboard/STM32/W5200/my/eth.c" title="eth.c" tooltip="C:/Work/Project_Testboard/STM32/W5200/my/eth.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/eth.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7684" selectionTopPixel="5041"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_dma.h" partName="stm32f10x_dma.h" path="C:/Work/Project_Testboard/STM32/stm_lib/inc/stm32f10x_dma.h" title="stm32f10x_dma.h" tooltip="C:/Work/Project_Testboard/STM32/stm_lib/inc/stm32f10x_dma.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/stm_lib/inc/stm32f10x_dma.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1494" selectionTopPixel="5626"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_usart.h" partName="stm32f10x_usart.h" path="C:/Work/Project_Testboard/STM32/stm_lib/inc/stm32f10x_usart.h" title="stm32f10x_usart.h" tooltip="C:/Work/Project_Testboard/STM32/stm_lib/inc/stm32f10x_usart.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/stm_lib/inc/stm32f10x_usart.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1508" selectionTopPixel="5221"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_dma.c" partName="stm32f10x_dma.c" path="C:/Work/Project_Testboard/STM32/stm_lib/src/stm32f10x_dma.c" title="stm32f10x_dma.c" tooltip="C:/Work/Project_Testboard/STM32/stm_lib/src/stm32f10x_dma.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/stm_lib/src/stm32f10x_dma.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1399" selectionTopPixel="9751"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="onewire.h" partName="onewire.h" path="C:/Work/Project_Testboard/STM32/onewire.h" title="onewire.h" tooltip="C:/Work/Project_Testboard/STM32/onewire.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/onewire.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="onewire.c" partName="onewire.c" path="C:/Work/Project_Testboard/STM32/onewire.c" title="onewire.c" tooltip="C:/Work/Project_Testboard/STM32/onewire.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/onewire.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="762" selectionTopPixel="5957"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.c" partName="stm32f10x_gpio.c" path="C:/Work/Project_M54/M54_mezanin/stm_lib/src/stm32f10x_gpio.c" title="stm32f10x_gpio.c" tooltip="C:/Work/Project_M54/M54_mezanin/stm_lib/src/stm32f10x_gpio.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/stm_lib/src/stm32f10x_gpio.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.h" partName="stm32f10x_gpio.h" path="C:/Work/Project_M54/M54_mezanin/stm_lib/inc/stm32f10x_gpio.h" title="stm32f10x_gpio.h" tooltip="C:/Work/Project_M54/M54_mezanin/stm_lib/inc/stm32f10x_gpio.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pj1/stm_lib/inc/stm32f10x_gpio.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3968" selectionTopPixel="1320"/>
-</editor>
 </editors>
 <views>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
@@ -126,7 +65,7 @@
 <viewState horizontalPosition="0" verticalPosition="0"/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.coocox.builder.perspective.CoBuilder">
+<perspectives activePart="org.coocox.builder.ui.views.ProjectView" activePerspective="org.coocox.builder.perspective.CoBuilder">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.coocox.builder.ui.PerspectiveCoBuilder" id="org.coocox.builder.perspective.CoBuilder" label="CooCox CoBuilder"/>
 <alwaysOnActionSet id="org.coocox.component.ui.actionSet"/>
@@ -312,167 +251,7 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/pj1/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/pj1/var_and_structur.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/pj1/var_and_structur.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/pj1/var_and_structur.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/pj1/stm_lib/src/stm32f10x_gpio.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/pj1/stm_lib/inc/stm32f10x_gpio.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/pj1/var_and_structur.h"/>
-</editors>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="55463" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="1">
-<position info="not_deleted" x="220" y="31"/>
-</item>
-<item historyLabel="var_and_structur.h" index="1">
-<position info="not_deleted" x="3477" y="40"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="468" y="31"/>
-</item>
-<item historyLabel="var_and_structur.h" index="1">
-<position info="not_deleted" x="3477" y="40"/>
-</item>
-<item historyLabel="var_and_structur.h" index="1">
-<position info="not_deleted" x="3389" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="468" y="31"/>
-</item>
-<item historyLabel="var_and_structur.h" index="2">
-<position info="not_deleted" x="2717" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="499" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="593" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1403" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="3">
-<position info="not_deleted" x="2417" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="3">
-<position info="not_deleted" x="3645" y="40"/>
-</item>
-<item historyLabel="stm32f10x_gpio.c" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="stm32f10x_gpio.h" index="5">
-<position info="not_deleted" x="3968" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="56392" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="3">
-<position info="not_deleted" x="3645" y="40"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="56296" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="3">
-<position info="not_deleted" x="3645" y="40"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="56296" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="82821" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="78546" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="78168" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="78542" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="78327" y="2"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="78886" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="78752" y="2"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="75855" y="109"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="76585" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="77481" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="78182" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="78356" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="78504" y="2"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="60134" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="6">
-<position info="not_deleted" x="3645" y="40"/>
-</item>
-<item historyLabel="var_and_structur.h" index="6">
-<position info="not_deleted" x="5737" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="6">
-<position info="not_deleted" x="5673" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="6">
-<position info="not_deleted" x="5061" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="6">
-<position info="not_deleted" x="4847" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="6">
-<position info="not_deleted" x="5675" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="6">
-<position info="not_deleted" x="5702" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="60362" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="6">
-<position info="not_deleted" x="5519" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="60362" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="6">
-<position info="not_deleted" x="5675" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="60362" y="0"/>
-</item>
-<item historyLabel="var_and_structur.h" index="6">
-<position info="not_deleted" x="5673" y="0"/>
-</item>
-<item active="true" historyLabel="main.c" index="0">
-<position info="not_deleted" x="60362" y="0"/>
-</item>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>

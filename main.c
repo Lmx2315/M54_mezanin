@@ -3597,11 +3597,27 @@ u8 i2c_read (u8 adr)
     return data;
 }
 
+void TIMER_SYNC (int flag)
+{
+	if (flag==0) 
+	{
+		flag=1;
+		time=0;	
+		SYNC_LMK_1;		
+	} else
+		if ((flag==1)&&(time>100))
+		{
+			flag=2;
+			SYNC_LMK_0;			
+		}
+}
+
+
 //--------------------------------
 int main(void)
 {
     int i;
-  
+	int FLAG_SYNC=0;
     init_RCC   ();
     init_GPIO  ();
     init_USART1();
@@ -3633,8 +3649,10 @@ Massiv_dbm(1); //расчёт массива ДБ для детектора
 init_FAPCH (410);
 PB11_1;
 
+
 while(1)
  {
+	  TIMER_SYNC (&FLAG_SYNC);
 //----------------UART------------------
       UART_conrol ();
       UART_DMA_TX (); //отправка по DMA сообщений 
