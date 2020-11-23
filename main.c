@@ -2542,10 +2542,10 @@ void INIT_REG_FAPCH_B_REF10MHz (void)
     R26B.EN_PLL_REF_2X = 0;
 	
 	R28B.ADR      = 28;
-    R28B.PLL_R    = 1;
+    R28B.PLL_R    = 10;//1-10 MHz , 10 - 100 MHz REF
 	
 	R29B.ADR 	     =29;
-	R29B.OSCin_FREQ  =0;     //0 < 63 MHz   ; 1>63 MHz to 127 MHz
+	R29B.OSCin_FREQ  =1;     //0 < 63 MHz   ; 1>63 MHz to 127 MHz
     R29B.PLL_N_CAL   =125;    // 5 - 100 MHz ref,25 - 20 MHz ref
 	
 	R30B.ADR 	     =30;
@@ -2560,6 +2560,7 @@ void INIT_REG_FAPCH_B_REF10MHz (void)
 
 //-----------------------------------------------------------
 // это тест дл€ проверки фильтра sclf-44 , делаем гетеродин 410 ћ√ц из 100 ћгц ref
+/*
 void INIT_REG_FAPCH_A_100MHz_410 (u32 freq)
 {
   R0B.RST = 1;
@@ -2660,7 +2661,7 @@ void INIT_REG_FAPCH_A_100MHz_410 (u32 freq)
     R26B.EN_PLL_REF_2X = 0;
   
     R28B.ADR           = 28;
-    R28B.PLL_R         = 10; //100 - 100 Mhz   10- 10 MHz
+    R28B.PLL_R         = 100; //100 - 100 Mhz   10- 10 MHz
   
     R29B.ADR           =29;
     R29B.OSCin_FREQ    = 1;   // >63 MHz to 127 MHz
@@ -2674,7 +2675,7 @@ void INIT_REG_FAPCH_A_100MHz_410 (u32 freq)
     R31B.READBACK_ADDR = 0;  // READBACK R0
     R31B.uWire_LOCK    = 0;  // 
 }
-
+*/
 //-----------------------------------------------------------
 // это тест дл€ проверки фильтра sclf-44 , делаем гетеродин 410 ћ√ц из 10 ћгц ref
 void INIT_REG_FAPCH_A_REF10MHz_410 (u32 freq)
@@ -2722,10 +2723,11 @@ void INIT_REG_FAPCH_A_REF10MHz_410 (u32 freq)
   R7B.TYPE3 = 0;//выход 7,
   R7B.ADR   = 7;
   
+  
   R8B.TYPE0 = 0;//выход 8,
   R8B.TYPE1 = 0;//выход 9,
-  R8B.TYPE2 = 2;//выход 10,2 -lvpecl (700 м¬)  LVPECL (2000 mVpp)
-  R8B.TYPE3 = 2;//выход 11,2 -lvpecl (700 м¬)  LVPECL (2000 mVpp)
+  R8B.TYPE2 = 5;//выход 10,2 -lvpecl (700 м¬)  LVPECL (2000 mVpp)
+  R8B.TYPE3 = 5;//выход 11,2 -lvpecl (700 м¬)  LVPECL (2000 mVpp)
   R8B.ADR   = 8;
   
   R9B.ADR   = 9;
@@ -2752,7 +2754,7 @@ void INIT_REG_FAPCH_A_REF10MHz_410 (u32 freq)
 //----------------------
   R12B.SYNC_PLL_DLD = 0;
   R12B.LD_TYPE      = 3;
-  R12B.LD_MUX       = 0;//PLL R ,LD_MUX sets the output value of the Ftest/LD pin.
+  R12B.LD_MUX       = 2;//PLL R ,LD_MUX sets the output value of the Ftest/LD pin.
   R12B.ADR          = 12;
 //----------------------
     R13B.ADR          =13;
@@ -2773,18 +2775,18 @@ void INIT_REG_FAPCH_A_REF10MHz_410 (u32 freq)
   
     R26B.ADR           = 26;
     R26B.PLL_DLD_CNT   = 3000;//window of acceptable phase error
-    R26B.PLL_CP_GAIN   = 0;   //CHARGE PUMP CURRENT (µA) 0 -0.1 mA |1 - 0.4 mA|2-1.6 mA|3 - 3.2 mA
+    R26B.PLL_CP_GAIN   = 3;   //CHARGE PUMP CURRENT (µA) 0 -0.1 mA |1 - 0.4 mA|2-1.6 mA|3 - 3.2 mA
     R26B.EN_PLL_REF_2X = 0;
   
     R28B.ADR           = 28;
-    R28B.PLL_R         = 5;   //   PLL2_R
+    R28B.PLL_R         = 100;   //10 - 10 REF|100 - 100 REF PLL2_R
   
     R29B.ADR           = 29;
-    R29B.OSCin_FREQ    =  0;  // >63 MHz to 127 MHz
+    R29B.OSCin_FREQ    =  1;  // >63 MHz to 127 MHz
     R29B.PLL_N_CAL     =411;  //   PLL2_N
   
     R30B.ADR           = 30;
-    R30B.PLL_P         =  3;  //   PLL2_N_PRE  
+    R30B.PLL_P         = 6;  //   PLL2_N_PRE  
     R30B.PLL_N         =411;  //   PLL2_N
   
     R31B.ADR           =31;
@@ -3385,8 +3387,8 @@ void init_FAPCH (u16 a)
 	 Transf("\r\n" );
 	 Transf("-----------------------------------\r\n" );
 	 Transf("ѕрограммирую REF=100 MHz,‘јѕ„_A:\r" );
-//   if (a==410) {INIT_REG_FAPCH_A_100MHz_410(0);Transf("get=410Mhz\r\n");} else	 INIT_REG_FAPCH_A_100MHz(360);
-     if (a==410) {INIT_REG_FAPCH_A_REF10MHz_410(0);Transf("get=410Mhz\r\n");} else	 INIT_REG_FAPCH_A_100MHz(360);
+
+     INIT_REG_FAPCH_A_REF10MHz_410(0);Transf("get=411Mhz\r\n");
      FAPCH_A();
 	 Transf("...\r" );
 	 Transf("¬ыполненно!\r" );
@@ -3643,7 +3645,7 @@ int main(void)
 //-----------»Ќ»÷»јЋ»«ј÷»я-------------
 I2C_delay=100;
 //----------------------------------------
-IO("~0 sel:1;");//1-out REF | 0 - in REF
+IO("~0 sel:0;");//1-out REF | 0 - in REF
 Massiv_dbm(1); //расчЄт массива ƒЅ дл€ детектора
 
 init_FAPCH (410);
