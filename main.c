@@ -2446,7 +2446,7 @@ void INIT_REG_FAPCH_B_REF10MHz (void)
 void INIT_REG_FAPCH_B_REF10MHz (void)
 {
 	R0B.RST = 1;
-	R0B.DIV = 25;// 100 MHz  25
+	R0B.DIV = 25;// 100 MHz  25  0/1 выходы
 	R0B.PD  = 0;
 	R0B.ADR = 0x00;
 
@@ -2461,13 +2461,13 @@ void INIT_REG_FAPCH_B_REF10MHz (void)
 	R2B.ADR = 0x02;
 
 	R3B.RST = 0;
-	R3B.DIV = 250;//10 MHz 250
-	R3B.PD  = 0x01;
+	R3B.DIV = 250;//10 MHz 6/7 выходы
+	R3B.PD  = 1;
 	R3B.ADR = 0x03;
 
 	R4B.RST = 0;
 	R4B.DIV = 20;// 125 MHz
-	R4B.PD  = 0x00;
+	R4B.PD  = 1;
 	R4B.ADR = 0x04;
 	
 	R5B.RST = 0;
@@ -2484,7 +2484,7 @@ void INIT_REG_FAPCH_B_REF10MHz (void)
 
 	R7B.TYPE0 = 0;//выход 4,
 	R7B.TYPE1 = 0;//выход 5,
-	R7B.TYPE2 = 2;//выход 6,  //6 - LVCMOS (Norm/Inv)
+	R7B.TYPE2 = 5;//выход 6,  //6 - LVCMOS (Norm/Inv) 2 - lvpecl (700 м¬)
 	R7B.TYPE3 = 0;//выход 7,
 	R7B.ADR   = 7;
 	

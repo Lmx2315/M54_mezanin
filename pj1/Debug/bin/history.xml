@@ -1,21 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -Map=pj1.map -O0 --gc-sections -lm -lgcc -lc -lstdc++ -LC:\CooCox\CoIDE\configuration\ProgramData\pj1 -TC:\CooCox\CoIDE\configuration\ProgramData\pj1/arm-gcc-link.ld -g">
-      <target file="pj1.elf" lastModified="175f56dd206">
-         <source file="..\obj\stm32f10x_tim.o" lastModified="175f56dc35b"/>
-         <source file="..\obj\system_stm32f10x.o" lastModified="175f56dc3c6"/>
-         <source file="..\obj\startup_stm32f10x_md.o" lastModified="175f56dc420"/>
-         <source file="..\obj\stm32f10x_gpio.o" lastModified="175f56dc4a7"/>
-         <source file="..\obj\main.o" lastModified="175f56dcaa1"/>
-         <source file="..\obj\stm32f10x_rcc.o" lastModified="175f56dcb44"/>
-         <source file="..\obj\stm32f10x_exti.o" lastModified="175f56dcbb5"/>
-         <source file="..\obj\stm32f10x_adc.o" lastModified="175f56dcc4b"/>
-         <source file="..\obj\stm32f10x_usart.o" lastModified="175f56dccd6"/>
-         <source file="..\obj\onewire.o" lastModified="175f56dcd60"/>
-         <source file="..\obj\syscalls.o" lastModified="175f56dcdca"/>
-         <source file="..\obj\stm32f10x_dma.o" lastModified="175f56dce3d"/>
-         <source file="..\obj\stm32f10x_spi.o" lastModified="175f56dcec6"/>
-         <source file="..\obj\stm32f10x_i2c.o" lastModified="175f56dcf5e"/>
+      <target file="pj1.elf" lastModified="175fff8ea5d">
+         <source file="..\obj\stm32f10x_tim.o" lastModified="175fff8dbc4"/>
+         <source file="..\obj\system_stm32f10x.o" lastModified="175fff8dc2b"/>
+         <source file="..\obj\startup_stm32f10x_md.o" lastModified="175fff8dc79"/>
+         <source file="..\obj\stm32f10x_gpio.o" lastModified="175fff8dcf0"/>
+         <source file="..\obj\main.o" lastModified="175fff8e35a"/>
+         <source file="..\obj\stm32f10x_rcc.o" lastModified="175fff8e3e0"/>
+         <source file="..\obj\stm32f10x_exti.o" lastModified="175fff8e44b"/>
+         <source file="..\obj\stm32f10x_adc.o" lastModified="175fff8e4d9"/>
+         <source file="..\obj\stm32f10x_usart.o" lastModified="175fff8e55f"/>
+         <source file="..\obj\onewire.o" lastModified="175fff8e5de"/>
+         <source file="..\obj\syscalls.o" lastModified="175fff8e643"/>
+         <source file="..\obj\stm32f10x_dma.o" lastModified="175fff8e6b5"/>
+         <source file="..\obj\stm32f10x_spi.o" lastModified="175fff8e733"/>
+         <source file="..\obj\stm32f10x_i2c.o" lastModified="175fff8e7bf"/>
       </target>
    </processor>
 </history>
